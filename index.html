@@ -57,23 +57,27 @@
         crossorigin="anonymous">
     </script>
     <script>
+        /* Array of Object */
         const films = [
             { title: "Inception", director: "Christopher Nolan", genre: "Sci-Fi" },
             { title: "The Shawshank Redemption", director: "Frank Darabont", genre: "Drama" },
             { title: "The Dark Knight", director: "Christopher Nolan", genre: "Action" },
             { title: "Pulp Fiction", director: "Quentin Tarantino", genre: "Crime" },
         ];
-    
+        
+        /* Arrow Function (Untuk mencetak detail film) */
         const printFilmDetails = (film) => {
             const details = `Title: ${film.title}, Director: ${film.director}, Genre: ${film.genre}`;
             document.getElementById("result").innerHTML += details + "<br>";
             console.log(details);
         };
-    
+        
+        /* String Manipulation */
         const capitalize = (str) => {
             return str.charAt(0).toUpperCase() + str.slice(1);
         };
-    
+        
+        /* Function (fungsi yang mengambil satu parameter genre film) */
         const printFilmsByGenre = (genre) => {
             const genreCapitalize = capitalize(genre);
             document.getElementById("result").innerHTML += `<br> Films in ${genreCapitalize} genre: <br>`;
@@ -84,32 +88,13 @@
                 }
             });
         };
-    
+        
+        /* Object Conditional (Untuk memeriksa apakah sebuah film merupakan film sci-fi sebelum mencetak) */
         const isSciFiFilm = (film) => {
             return film.genre.toLowerCase() === 'sci-fi';
         };
-    
-        const printSciFiFilms = () => {
-            document.getElementById("result").innerHTML += `<br> Sci-Fi Films: <br>`;
-            console.log("Sci-Fi Films:");
-            films.forEach((film) => {
-                if (isSciFiFilm(film)) {
-                    printFilmDetails(film);
-                }
-            });
-        };
-    
-        const viewFilms = () => {
-            document.getElementById("result").innerHTML = "";
-            document.getElementById("result").innerHTML += "<br> List of Films: <br>";
-            console.log("List of Films:");
-            films.forEach((film) => {
-                printFilmDetails(film);
-            });
-            printFilmsByGenre("sci-fi");
-            printSciFiFilms();
-        };
-    
+        
+        /* Function (Untuk menampilkan film saat tombol diklik) */
         function viewJava() {
             const resultElement = document.getElementById("result");
             resultElement.innerHTML = "";
